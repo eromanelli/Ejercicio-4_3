@@ -1,0 +1,48 @@
+public class Auto {
+
+	private String marca;
+	private int modelo;
+	private float precioVenta;
+	private float precioFabricacion;
+	private int stock;
+	private int moneda;
+	
+	
+	
+	public Auto(String str1, int valor1, float valor2, float valor3, int valor4, int valor5)
+	{
+		marca = str1;
+		modelo = valor1;
+		precioVenta = valor2;
+		precioFabricacion = valor3;
+		stock = valor4;
+		moneda = valor5;
+	}
+	
+	public double convertirMoneda(double valor)
+	{
+		if(this.moneda==2)
+		{
+			valor=(valor*20.51);
+		}
+		else
+			{
+				if(this.moneda==3)
+				{
+					valor=(valor*26.48);
+				}
+			}
+		
+		return valor;
+	}
+	
+	public double calcularGanancia()
+	{
+		double aux = precioVenta - precioFabricacion;
+		double precioFinal = convertirMoneda(aux); 
+		return precioFinal;
+	}
+
+	
+	
+}
