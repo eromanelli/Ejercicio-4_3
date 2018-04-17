@@ -1,0 +1,62 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class Concesionaria {
+
+	private int cuit;
+	private String razonSocial;
+	private ArrayList<Auto> autos;
+	
+	
+	public Concesionaria()
+	{
+		Scanner entrada = new Scanner (System.in);
+		System.out.println("Ingrese CUIT: ");
+		cuit = entrada.nextInt();
+		System.out.println("Ingrese razon social: ");
+		razonSocial = entrada.next();
+		autos = new ArrayList<Auto>();
+		
+	}
+	
+	
+	// Punto 1
+	public void agregarAuto() {
+		
+		Scanner entrada = new Scanner (System.in);
+		System.out.println("Ingrese marca: ");
+		String marca = entrada.next();
+		System.out.println("Ingrese modelo: ");
+		int modelo = entrada.nextInt();
+		System.out.println("Ingrese precio de venta: ");
+		float precioV = entrada.nextFloat();
+		System.out.println("Ingrese precio de fabricacion: ");
+		float precioF = entrada.nextFloat();
+		System.out.println("Ingrese stock inicial: ");
+		int stock = entrada.nextInt();
+		System.out.println("Ingrese moneda a utilizar. 1=PESO 2=DOLAR 3=EURO: ");
+		int moneda = entrada.nextInt();
+		
+		Auto aut = new Auto(marca,modelo,precioV,precioF,stock,moneda);
+		autos.add(aut);
+		
+	}
+	
+	// Punto 2
+	
+	public void calcularGanancia()
+	{
+		
+		int i,acumulador=0;
+		for(i=0;i<autos.size();i++)
+		{
+			acumulador+=autos.get(i).calcularGanancia();
+		}
+		
+		System.out.println("El total de ganancia de todos los autos es de: "+acumulador);
+		
+	}
+	
+	
+	
+}
