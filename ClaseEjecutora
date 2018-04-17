@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Ejecutora {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Concesionaria e = new Concesionaria();
+		int respuesta;
+		
+		Scanner entrada = new Scanner (System.in);
+		do
+		{
+			System.out.println("MENU DE OPCIONES. 1=AGREGAR UN AUTO NUEVO 2=MOSTRAR GANANCIAS TOTALES 0=FIN DE OPERACIONES");
+			respuesta = entrada.nextInt();
+			
+			switch(respuesta)
+			{
+					case 1: e.agregarAuto();
+					break;
+					
+					case 2: e.calcularGanancia();
+					break;
+			}
+			
+		}while(respuesta!=0);
+	}
+
+}
